@@ -57,9 +57,57 @@ include CMakeFiles/main.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/main.dir/flags.make
 
+CMakeFiles/main.dir/src/Circle.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/Circle.cpp.o: src/Circle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/src/Circle.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/Circle.cpp.o -c /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Circle.cpp
+
+CMakeFiles/main.dir/src/Circle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/Circle.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Circle.cpp > CMakeFiles/main.dir/src/Circle.cpp.i
+
+CMakeFiles/main.dir/src/Circle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/Circle.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Circle.cpp -o CMakeFiles/main.dir/src/Circle.cpp.s
+
+CMakeFiles/main.dir/src/Circle.cpp.o.requires:
+
+.PHONY : CMakeFiles/main.dir/src/Circle.cpp.o.requires
+
+CMakeFiles/main.dir/src/Circle.cpp.o.provides: CMakeFiles/main.dir/src/Circle.cpp.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Circle.cpp.o.provides.build
+.PHONY : CMakeFiles/main.dir/src/Circle.cpp.o.provides
+
+CMakeFiles/main.dir/src/Circle.cpp.o.provides.build: CMakeFiles/main.dir/src/Circle.cpp.o
+
+
+CMakeFiles/main.dir/src/Parabola.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/Parabola.cpp.o: src/Parabola.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/Parabola.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/Parabola.cpp.o -c /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Parabola.cpp
+
+CMakeFiles/main.dir/src/Parabola.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/Parabola.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Parabola.cpp > CMakeFiles/main.dir/src/Parabola.cpp.i
+
+CMakeFiles/main.dir/src/Parabola.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/Parabola.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Parabola.cpp -o CMakeFiles/main.dir/src/Parabola.cpp.s
+
+CMakeFiles/main.dir/src/Parabola.cpp.o.requires:
+
+.PHONY : CMakeFiles/main.dir/src/Parabola.cpp.o.requires
+
+CMakeFiles/main.dir/src/Parabola.cpp.o.provides: CMakeFiles/main.dir/src/Parabola.cpp.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Parabola.cpp.o.provides.build
+.PHONY : CMakeFiles/main.dir/src/Parabola.cpp.o.provides
+
+CMakeFiles/main.dir/src/Parabola.cpp.o.provides.build: CMakeFiles/main.dir/src/Parabola.cpp.o
+
+
 CMakeFiles/main.dir/src/Point.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/Point.cpp.o: src/Point.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/src/Point.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/Point.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/Point.cpp.o -c /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Point.cpp
 
 CMakeFiles/main.dir/src/Point.cpp.i: cmake_force
@@ -83,7 +131,7 @@ CMakeFiles/main.dir/src/Point.cpp.o.provides.build: CMakeFiles/main.dir/src/Poin
 
 CMakeFiles/main.dir/src/main.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/main.cpp.o: src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/main.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/main.cpp.o -c /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/main.cpp
 
 CMakeFiles/main.dir/src/main.cpp.i: cmake_force
@@ -105,9 +153,57 @@ CMakeFiles/main.dir/src/main.cpp.o.provides: CMakeFiles/main.dir/src/main.cpp.o.
 CMakeFiles/main.dir/src/main.cpp.o.provides.build: CMakeFiles/main.dir/src/main.cpp.o
 
 
+CMakeFiles/main.dir/src/Ellipse.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/Ellipse.cpp.o: src/Ellipse.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/Ellipse.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/Ellipse.cpp.o -c /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Ellipse.cpp
+
+CMakeFiles/main.dir/src/Ellipse.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/Ellipse.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Ellipse.cpp > CMakeFiles/main.dir/src/Ellipse.cpp.i
+
+CMakeFiles/main.dir/src/Ellipse.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/Ellipse.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Ellipse.cpp -o CMakeFiles/main.dir/src/Ellipse.cpp.s
+
+CMakeFiles/main.dir/src/Ellipse.cpp.o.requires:
+
+.PHONY : CMakeFiles/main.dir/src/Ellipse.cpp.o.requires
+
+CMakeFiles/main.dir/src/Ellipse.cpp.o.provides: CMakeFiles/main.dir/src/Ellipse.cpp.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Ellipse.cpp.o.provides.build
+.PHONY : CMakeFiles/main.dir/src/Ellipse.cpp.o.provides
+
+CMakeFiles/main.dir/src/Ellipse.cpp.o.provides.build: CMakeFiles/main.dir/src/Ellipse.cpp.o
+
+
+CMakeFiles/main.dir/src/Geometry.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/Geometry.cpp.o: src/Geometry.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/Geometry.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/Geometry.cpp.o -c /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Geometry.cpp
+
+CMakeFiles/main.dir/src/Geometry.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/Geometry.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Geometry.cpp > CMakeFiles/main.dir/src/Geometry.cpp.i
+
+CMakeFiles/main.dir/src/Geometry.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/Geometry.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Geometry.cpp -o CMakeFiles/main.dir/src/Geometry.cpp.s
+
+CMakeFiles/main.dir/src/Geometry.cpp.o.requires:
+
+.PHONY : CMakeFiles/main.dir/src/Geometry.cpp.o.requires
+
+CMakeFiles/main.dir/src/Geometry.cpp.o.provides: CMakeFiles/main.dir/src/Geometry.cpp.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Geometry.cpp.o.provides.build
+.PHONY : CMakeFiles/main.dir/src/Geometry.cpp.o.provides
+
+CMakeFiles/main.dir/src/Geometry.cpp.o.provides.build: CMakeFiles/main.dir/src/Geometry.cpp.o
+
+
 CMakeFiles/main.dir/src/Line.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/Line.cpp.o: src/Line.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/Line.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/Line.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/Line.cpp.o -c /home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Line.cpp
 
 CMakeFiles/main.dir/src/Line.cpp.i: cmake_force
@@ -131,15 +227,23 @@ CMakeFiles/main.dir/src/Line.cpp.o.provides.build: CMakeFiles/main.dir/src/Line.
 
 # Object files for target main
 main_OBJECTS = \
+"CMakeFiles/main.dir/src/Circle.cpp.o" \
+"CMakeFiles/main.dir/src/Parabola.cpp.o" \
 "CMakeFiles/main.dir/src/Point.cpp.o" \
 "CMakeFiles/main.dir/src/main.cpp.o" \
+"CMakeFiles/main.dir/src/Ellipse.cpp.o" \
+"CMakeFiles/main.dir/src/Geometry.cpp.o" \
 "CMakeFiles/main.dir/src/Line.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
+main: CMakeFiles/main.dir/src/Circle.cpp.o
+main: CMakeFiles/main.dir/src/Parabola.cpp.o
 main: CMakeFiles/main.dir/src/Point.cpp.o
 main: CMakeFiles/main.dir/src/main.cpp.o
+main: CMakeFiles/main.dir/src/Ellipse.cpp.o
+main: CMakeFiles/main.dir/src/Geometry.cpp.o
 main: CMakeFiles/main.dir/src/Line.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: /usr/lib/x86_64-linux-gnu/libGLU.so
@@ -148,7 +252,7 @@ main: /usr/lib/x86_64-linux-gnu/libglut.so
 main: /usr/lib/x86_64-linux-gnu/libXmu.so
 main: /usr/lib/x86_64-linux-gnu/libXi.so
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -156,8 +260,12 @@ CMakeFiles/main.dir/build: main
 
 .PHONY : CMakeFiles/main.dir/build
 
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/src/Circle.cpp.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/src/Parabola.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/src/Point.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/src/main.cpp.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/src/Ellipse.cpp.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/src/Geometry.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/src/Line.cpp.o.requires
 
 .PHONY : CMakeFiles/main.dir/requires

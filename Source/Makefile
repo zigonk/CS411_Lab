@@ -123,6 +123,87 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+src/Circle.o: src/Circle.cpp.o
+
+.PHONY : src/Circle.o
+
+# target to build an object file
+src/Circle.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Circle.cpp.o
+.PHONY : src/Circle.cpp.o
+
+src/Circle.i: src/Circle.cpp.i
+
+.PHONY : src/Circle.i
+
+# target to preprocess a source file
+src/Circle.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Circle.cpp.i
+.PHONY : src/Circle.cpp.i
+
+src/Circle.s: src/Circle.cpp.s
+
+.PHONY : src/Circle.s
+
+# target to generate assembly for a file
+src/Circle.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Circle.cpp.s
+.PHONY : src/Circle.cpp.s
+
+src/Ellipse.o: src/Ellipse.cpp.o
+
+.PHONY : src/Ellipse.o
+
+# target to build an object file
+src/Ellipse.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Ellipse.cpp.o
+.PHONY : src/Ellipse.cpp.o
+
+src/Ellipse.i: src/Ellipse.cpp.i
+
+.PHONY : src/Ellipse.i
+
+# target to preprocess a source file
+src/Ellipse.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Ellipse.cpp.i
+.PHONY : src/Ellipse.cpp.i
+
+src/Ellipse.s: src/Ellipse.cpp.s
+
+.PHONY : src/Ellipse.s
+
+# target to generate assembly for a file
+src/Ellipse.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Ellipse.cpp.s
+.PHONY : src/Ellipse.cpp.s
+
+src/Geometry.o: src/Geometry.cpp.o
+
+.PHONY : src/Geometry.o
+
+# target to build an object file
+src/Geometry.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Geometry.cpp.o
+.PHONY : src/Geometry.cpp.o
+
+src/Geometry.i: src/Geometry.cpp.i
+
+.PHONY : src/Geometry.i
+
+# target to preprocess a source file
+src/Geometry.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Geometry.cpp.i
+.PHONY : src/Geometry.cpp.i
+
+src/Geometry.s: src/Geometry.cpp.s
+
+.PHONY : src/Geometry.s
+
+# target to generate assembly for a file
+src/Geometry.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Geometry.cpp.s
+.PHONY : src/Geometry.cpp.s
+
 src/Line.o: src/Line.cpp.o
 
 .PHONY : src/Line.o
@@ -149,6 +230,33 @@ src/Line.s: src/Line.cpp.s
 src/Line.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Line.cpp.s
 .PHONY : src/Line.cpp.s
+
+src/Parabola.o: src/Parabola.cpp.o
+
+.PHONY : src/Parabola.o
+
+# target to build an object file
+src/Parabola.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Parabola.cpp.o
+.PHONY : src/Parabola.cpp.o
+
+src/Parabola.i: src/Parabola.cpp.i
+
+.PHONY : src/Parabola.i
+
+# target to preprocess a source file
+src/Parabola.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Parabola.cpp.i
+.PHONY : src/Parabola.cpp.i
+
+src/Parabola.s: src/Parabola.cpp.s
+
+.PHONY : src/Parabola.s
+
+# target to generate assembly for a file
+src/Parabola.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Parabola.cpp.s
+.PHONY : src/Parabola.cpp.s
 
 src/Point.o: src/Point.cpp.o
 
@@ -213,9 +321,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... main"
+	@echo "... src/Circle.o"
+	@echo "... src/Circle.i"
+	@echo "... src/Circle.s"
+	@echo "... src/Ellipse.o"
+	@echo "... src/Ellipse.i"
+	@echo "... src/Ellipse.s"
+	@echo "... src/Geometry.o"
+	@echo "... src/Geometry.i"
+	@echo "... src/Geometry.s"
 	@echo "... src/Line.o"
 	@echo "... src/Line.i"
 	@echo "... src/Line.s"
+	@echo "... src/Parabola.o"
+	@echo "... src/Parabola.i"
+	@echo "... src/Parabola.s"
 	@echo "... src/Point.o"
 	@echo "... src/Point.i"
 	@echo "... src/Point.s"

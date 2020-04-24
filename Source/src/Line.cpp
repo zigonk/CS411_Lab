@@ -16,11 +16,6 @@ Line::Line(Point start, Point end, Method method)
   }
 }
 
-Line::~Line()
-{
-  delete[] PointSet;
-}
-
 bool Line::LineNormalize(Point &start, Point &end)
 {
   // Normalize line to y = mx + b with 0 <= abs(m) <= 1
@@ -93,23 +88,41 @@ void Line::DrawByBrensenham(Point start, Point end)
   }
 }
 
-void Line::DrawByPointSet()
-{
-  glClearColor (0.0, 0.0, 0.0, 0.0);
-  glBegin(GL_POINTS);
-  for (int i = 0; i < n_points; ++i)
-  {
-    glColor3f(1, 1, 1);
-    glVertex2i(PointSet[i].x, PointSet[i].y);
-  }
-  glEnd();
-}
-
 void Line::DrawByDefault(Point start, Point end)
 {
-  glClearColor (0.0, 0.0, 0.0, 0.0);
+  glClear(GL_COLOR_BUFFER_BIT);
   glBegin(GL_LINES);
     glVertex2d(start.x, start.y);
     glVertex2d(end.x, end.y);
   glEnd();
+  glFlush();
+  int X = min(start.x, end.x);
+  int Y = min(start.y, end.y);
+  int width = abs(end.x - start.x) + 1;
+  int height = abs(end.y - start.y) + 1;
+  n_points = max(width, height);
+  PointSet = new Point[n_points];
+  float pixel[width * height * 4];
+  glReadPixels(X, Y, width, height, GL_RGBA, GL_FLOAT, &pixel);
+  int cur_index = 0;
+  for (int j = 0; j < height; j++)
+    for (int i = 0; i < width; i++)
+    {
+      int pos = j * width + i;
+      if (pixel[pos * 4] == 1)
+        PointSet[cur_index++] = Point(i, j);
+    }
+  // due to GL_LINES does not draw end point
+  PointSet[cur_index] = end;
+}
+
+void Line::DrawOnly(Point start, Point end)
+{
+  glClear(GL_COLOR_BUFFER_BIT);
+  glBegin(GL_LINES);
+  glVertex2d(start.x, start.y);
+  glVertex2d(end.x, end.y);
+  glEnd();
+  glFlush();
+  // glutSwapBuffers();
 }

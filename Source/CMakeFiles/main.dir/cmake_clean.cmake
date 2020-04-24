@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/main.dir/src/Circle.cpp.o"
+  "CMakeFiles/main.dir/src/Parabola.cpp.o"
   "CMakeFiles/main.dir/src/Point.cpp.o"
   "CMakeFiles/main.dir/src/main.cpp.o"
+  "CMakeFiles/main.dir/src/Ellipse.cpp.o"
+  "CMakeFiles/main.dir/src/Geometry.cpp.o"
   "CMakeFiles/main.dir/src/Line.cpp.o"
   "main.pdb"
   "main"

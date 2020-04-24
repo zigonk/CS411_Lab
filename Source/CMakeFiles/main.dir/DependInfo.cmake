@@ -4,7 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Circle.cpp" "/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles/main.dir/src/Circle.cpp.o"
+  "/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Ellipse.cpp" "/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles/main.dir/src/Ellipse.cpp.o"
+  "/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Geometry.cpp" "/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles/main.dir/src/Geometry.cpp.o"
   "/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Line.cpp" "/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles/main.dir/src/Line.cpp.o"
+  "/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Parabola.cpp" "/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles/main.dir/src/Parabola.cpp.o"
   "/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/Point.cpp" "/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles/main.dir/src/Point.cpp.o"
   "/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/src/main.cpp" "/home/zkn99/Documents/StudyPlace/HomeWork/CS411/Lab01/Source/CMakeFiles/main.dir/src/main.cpp.o"
   )

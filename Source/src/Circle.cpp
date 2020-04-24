@@ -5,11 +5,6 @@ Circle::Circle(Point center, int radius)
   DrawByMidPoint(center, radius);
 }
 
-Circle::~Circle()
-{
-  delete[] PointSet;
-}
-
 void Circle::Add8SymmetricPoint(int x, int y, int index)
 {
   for (int i = 0; i < 4; ++i)
@@ -32,15 +27,14 @@ void Circle::Add8SymmetricPoint(int x, int y, int index)
 
 void Circle::DrawByMidPoint(Point center, int radius)
 {
-  n_points = radius * 4;
+  n_points = ceil(radius / sqrt(2)) * 8;
   PointSet = new Point[n_points];
   Add8SymmetricPoint(0, radius, 0);
   int P = 1 -  radius;
-  int X = 1;
+  int X = 0;
   int Y = radius;
   for (int i = 8; i < n_points; i += 8)
   {
-    Add8SymmetricPoint(X, Y, i);
     if (P >= 0)
     {
       P -= 2*(Y - 1);
@@ -48,8 +42,11 @@ void Circle::DrawByMidPoint(Point center, int radius)
     }
     P += 2*(X + 1) + 1;
     X += 1;
+    Add8SymmetricPoint(X, Y, i);
   }
   for (int i = 0; i < n_points; i++)
+  {
     PointSet[i].x += center.x;
     PointSet[i].y += center.y;
+  }
 }
