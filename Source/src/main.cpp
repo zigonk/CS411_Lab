@@ -19,29 +19,29 @@ void drawLineTimeComparing(char *fileName, int n_tries)
   time_span = t2 - t1;
   cout << "Draw by Default: " << time_span.count() << " milliseconds." << endl;
 
-  // t1 = high_resolution_clock::now();
+  t1 = high_resolution_clock::now();
 
-  // for (int i = 0; i < n_tries; ++i)
-  // {
-  //   Line l = Line(start, end, DDA);
-  //   l.DrawByPointSet();
-  // }
+  for (int i = 0; i < n_tries; ++i)
+  {
+    Line l = Line(start, end, DDA);
+    l.DrawByPointSet();
+  }
 
-  // t2 = high_resolution_clock::now();
-  // time_span = t2 - t1;
-  // cout << "Draw by DDA: " << time_span.count() << " milliseconds." << endl;
+  t2 = high_resolution_clock::now();
+  time_span = t2 - t1;
+  cout << "Draw by DDA: " << time_span.count() << " milliseconds." << endl;
 
-  // t1 = high_resolution_clock::now();
+  t1 = high_resolution_clock::now();
 
-  // for (int i = 0; i < n_tries; ++i)
-  // {
-  //   Line l = Line(start, end, BRESENHAM);
-  //   l.DrawByPointSet();
-  // }
+  for (int i = 0; i < n_tries; ++i)
+  {
+    Line l = Line(start, end, BRESENHAM);
+    l.DrawByPointSet();
+  }
 
-  // t2 = high_resolution_clock::now();
-  // time_span = t2 - t1;
-  // cout << "Draw by Bresenham: " << time_span.count() << " milliseconds." << endl;
+  t2 = high_resolution_clock::now();
+  time_span = t2 - t1;
+  cout << "Draw by Bresenham: " << time_span.count() << " milliseconds." << endl;
   fclose(stdin);
 }
 
@@ -60,8 +60,11 @@ void drawObjectsFromFile(char *fileName)
 {
   freopen(fileName, "r", stdin);
   int obj_type;
+  high_resolution_clock::time_point t1, t2;
+  duration<double, std::milli> time_span;
   while (cin >> obj_type)
   {
+    t1 = high_resolution_clock::now();
     switch (obj_type)
     {
     case -1:
@@ -79,6 +82,7 @@ void drawObjectsFromFile(char *fileName)
       cin >> start >> end;
       Line l = Line(start, end, method);
       l.DrawByPointSet();
+      cout << "Draw Line by DDA..." << endl;
       break;
     }
     case 1:
@@ -88,6 +92,7 @@ void drawObjectsFromFile(char *fileName)
       cin >> start >> end;
       Line l = Line(start, end, method);
       l.DrawByPointSet();
+      cout << "Draw Line by Brensenham..." << endl;
       break;
     }
     case 2:
@@ -97,6 +102,7 @@ void drawObjectsFromFile(char *fileName)
       cin >> center >> radius;
       Circle c = Circle(center, radius);
       c.DrawByPointSet();
+      cout << "Draw Circle..." << endl;
       break;
     }
     case 3:
@@ -106,6 +112,7 @@ void drawObjectsFromFile(char *fileName)
       cin >> center >> major >> minor;
       Ellipse e = Ellipse(center, major, minor);
       e.DrawByPointSet();
+      cout << "Draw Ellipse..." << endl;
       break;
     }
     case 4:
@@ -115,29 +122,42 @@ void drawObjectsFromFile(char *fileName)
       cin >> center >> focal_length;
       Parabola p = Parabola(center, focal_length);
       p.DrawByPointSet();
+      cout << "Draw Parabola..." << endl;
+      break;
+    }
+    case 5:
+    {
+      Point center;
+      int major, minor;
+      cin >> center >> major >> minor;
+      Hyperbola h = Hyperbola(center, major, minor);
+      h.DrawByPointSet();
+      cout << "Draw Hyperbola..." << endl;
       break;
     }
     default:
       break;
     }
+    t2 = high_resolution_clock::now();
+    time_span = t2 - t1;
+    cout << "Drawing consume " << time_span.count() << " milliseconds." << endl;
     std::this_thread::sleep_for(std::chrono::milliseconds(1 * Config::SLEEP_TIME));
   }
 }
 
 void renderObjects(void)
 {
+  glClear(GL_COLOR_BUFFER_BIT);
   drawObjectsFromFile(fileName);
-  glFlush();
-  // drawLineTimeComparing(fileName, 2000);
-  // drawLineAccuracyComparing(fileName, DEFAULT, BRESENHAM);
-  // glutSwapBuffers();
+  // drawLineTimeComparing(fileName, 1);
+  // drawLineAccuracyComparing(fileName, DEFAULT, DDA);
 }
 
 void init()
 {
   glClearColor (0.0, 0.0, 0.0, 0.0);
-  glMatrixMode(GL_PROJECTION);
   glColor3f(1, 1, 1);
+  glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
   gluOrtho2D(0.0, Config::WIDTH, 0.0, Config::HEIGHT);
 }

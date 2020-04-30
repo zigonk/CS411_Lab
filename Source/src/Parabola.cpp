@@ -44,7 +44,7 @@ void Parabola::DrawByMidPoint(Point center, int focal_length)
   }
 
   // dy / dx < 1
-  P = (X + 1 / 2) * (X + 1 / 2) - 4 * focal_length * Y;
+  P = (X + 1.0 / 2) * (X + 1.0 / 2) - 4 * focal_length * Y;
   for (; i < n_points; i += 2)
   {
     if (P < 0)

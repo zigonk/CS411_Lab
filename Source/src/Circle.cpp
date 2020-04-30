@@ -27,10 +27,10 @@ void Circle::Add8SymmetricPoint(int x, int y, int index)
 
 void Circle::DrawByMidPoint(Point center, int radius)
 {
-  n_points = ceil(radius / sqrt(2)) * 8;
+  n_points = ceil(1.0 * radius / sqrt(2)) * 8;
   PointSet = new Point[n_points];
   Add8SymmetricPoint(0, radius, 0);
-  int P = 1 -  radius;
+  int P = 1 - radius;
   int X = 0;
   int Y = radius;
   for (int i = 8; i < n_points; i += 8)

@@ -92,4 +92,14 @@ public:
   Parabola(Point center, int focal_length);
 };
 
+class Hyperbola: public Geometry
+{
+private:
+  void DrawByMidPoint(Point center, int major, int minor);
+  void Add4SymetricPoint(int x, int y, int index);
+public:
+  Hyperbola() = default;
+  Hyperbola(Point center, int major, int minor);
+};
+
 #endif
