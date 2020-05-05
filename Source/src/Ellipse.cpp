@@ -17,17 +17,22 @@ void Ellipse::Add4SymetricPoint(int x, int y, int index)
 
 void Ellipse::DrawByMidPoint(Point center, int major, int minor)
 {
+  float major2 = pow(major, 2);
+  float minor2 = pow(minor, 2);
   int P = (pow(minor, 2)) - (pow(major, 2) * minor) + (pow(major, 2) / 4);
   int X = 0;
   int Y = minor;
-  n_points = (floor(1.0 * major/sqrt(2)) + floor(1.0 * minor/sqrt(2)) + 1) * 4;
+  // n_points = (floor(1.0 * major/sqrt(2)) + floor(1.0 * minor/sqrt(2)) + 1) * 4;
+  float boundx = major2 / sqrt(major2 + minor2);
+  float boundy = minor2 / sqrt(major2 + minor2);
+  n_points = (ceil(boundx) + floor(boundy)) * 4;
   PointSet = new Point[n_points];
   PointSet[0] = Point(0,  minor);
   PointSet[1] = Point(0, -minor);
   PointSet[2] = Point( major, 0);
   PointSet[3] = Point(-major, 0);
   int i = 4;
-  for (; i < ceil(1.0 * major/sqrt(2) + 1) * 4; i += 4)
+  for (; i < ceil(boundx) * 4; i += 4)
   {
     X++;
     if (P >= 0)

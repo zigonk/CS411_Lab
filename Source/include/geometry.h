@@ -12,6 +12,7 @@
 #include <chrono>
 #include <config.h>
 #include <thread>
+#include <queue>
 
 using namespace std;
 using namespace std::chrono;
@@ -24,6 +25,23 @@ enum Method {
   BRESENHAM,
   MID_POINT,
   DEFAULT
+};
+
+enum ColorPreset
+{
+  RED,
+  GREEN,
+  BLUE,
+};
+
+class Color
+{
+public:
+  float r, g, b;
+  Color() = default;
+  Color(float r, float g, float b);
+  Color(ColorPreset preset);
+  friend bool operator != (const Color &a, const Color &b);
 };
 
 class Point
@@ -60,6 +78,12 @@ public:
   Line(Point start, Point end, Method method);
   static void DrawOnly(Point start, Point end);
   static bool LineNormalize(Point &start, Point &end);
+};
+
+class Rectangle:public Geometry
+{
+public:
+  static void DrawOnly(Point start, Point end);
 };
 
 class Circle: public Geometry

@@ -41,7 +41,6 @@ int L2_distance(Geometry &g1, Geometry &g2)
 
 void Geometry::DrawByPointSet()
 {
-  glClear(GL_COLOR_BUFFER_BIT);
   glBegin(GL_POINTS);
   for (int i = 0; i < n_points; ++i)
   {
@@ -52,6 +51,5 @@ void Geometry::DrawByPointSet()
     glVertex2i(PointSet[i].x, PointSet[i].y);
   }
   glEnd();
-  glFlush();
-  // glutSwapBuffers();
+  glutSwapBuffers();
 }
