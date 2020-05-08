@@ -29,6 +29,9 @@ void MenuManager::createMenu()
   glutAddMenuEntry("Ellipse", ELLIPSE);
   glutAddMenuEntry("Rectangle", RECTANGLE);
   glutAddMenuEntry("Polygon", POLYGON);
+  glutAddMenuEntry("Right Triangle", RIGHT_TRIANGLE);
+  glutAddMenuEntry("Regular Hexagon", REGULAR_HEXAGON);
+  glutAddMenuEntry("Regular Pentagon", REGULAR_PENTAGON);
   int colorMenu = glutCreateMenu(MenuManager::handleColorMenu);
   glutAddMenuEntry("Red", RED);
   glutAddMenuEntry("Green", GREEN);

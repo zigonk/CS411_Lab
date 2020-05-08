@@ -80,7 +80,6 @@ void DrawManager::drawRectangle()
   case GLUT_UP:
   {
     end = Point(x, y);
-    cout << start << " " << end << endl;
     Rectangle::DrawOnly(start, end);
     resetValue();
     break;
@@ -115,12 +114,41 @@ void DrawManager::drawPolygon()
   case GLUT_RIGHT_BUTTON:
     if (state == GLUT_UP && start.x != -1)
     {
-      cout << "1" << endl;
       Line::DrawOnly(end, start);
       resetValue();
       glutAttachMenu(GLUT_RIGHT_BUTTON);
     }
     break;
+  default:
+    break;
+  }
+}
+
+void DrawManager::drawRegularPolygon(int numberOfEdges)
+{
+  if (button != GLUT_LEFT_BUTTON)
+    return;
+  switch (state)
+  {
+  case GLUT_DOWN:
+    start = Point(x, y);
+    break;
+  case GLUT_UP:
+  {
+    end = Point(x, y);
+    if (end.y < start.y)
+      swap(end.y, start.y);
+    if (end.x < start.x)
+      swap(end.x, start.x);
+    int radius = min(end.x - start.x, end.y - start.y);
+    radius /= 2;
+    if (radius == 0)
+      break;
+    Point center = Point(start.x + radius, start.y + radius);
+    RegularPolygon::drawOnly(center, radius, numberOfEdges);
+    resetValue();
+    break;
+  }
   default:
     break;
   }
@@ -142,10 +170,19 @@ void DrawManager::handleDraw()
   case POLYGON:
     drawPolygon();
     break;
+  case RIGHT_TRIANGLE:
+    drawRegularPolygon(3);
+    break;
+  case REGULAR_PENTAGON:
+    drawRegularPolygon(5);
+    break;
+  case REGULAR_HEXAGON:
+    drawRegularPolygon(6);
+    break;
   default:
     break;
   }
-  glutSwapBuffers();
+  glFlush();
 }
 
 Color getColorAtPixel(int x, int y)
@@ -157,11 +194,9 @@ Color getColorAtPixel(int x, int y)
 
 void putPixel(int x, int y)
 {
-  // cout << "add pixel" << endl;
   glBegin(GL_POINTS);
   glVertex2i(x, y);
   glEnd();
-  // cout << "finish" << endl;
 }
 
 void floodFill(int x, int y, const Color &c, Color a[][Config::WIDTH])
@@ -214,7 +249,7 @@ void DrawManager::handleFill()
   getCurrentFrame(a);
   Color c = a[y][x];
   floodFill(x, y, c, a);
-  glutSwapBuffers();
+  glFlush();
 }
 
 void DrawManager::handleClick(int btn, int state, int x, int y)

@@ -9,7 +9,7 @@ void renderObjects(void)
   if (firstRender)
   {
     glClear(GL_COLOR_BUFFER_BIT);
-    glutSwapBuffers();
+    glFlush();
     firstRender = false;
   }
   DrawManager::execute();
@@ -28,7 +28,7 @@ void init()
 int main(int argc, char** argv)
 {
   glutInit(&argc, argv);
-  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+  glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
   glutInitWindowPosition(100, 100);
   glutInitWindowSize(Config::WIDTH, Config::HEIGHT);
   glutCreateWindow("Visualize");

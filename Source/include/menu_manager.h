@@ -9,6 +9,9 @@ enum Shape
   ELLIPSE,
   RECTANGLE,
   POLYGON,
+  RIGHT_TRIANGLE,
+  REGULAR_HEXAGON,
+  REGULAR_PENTAGON,
 };
 
 enum Action

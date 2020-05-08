@@ -14,6 +14,7 @@ private:
   static void drawEllipse();
   static void drawRectangle();
   static void drawPolygon();
+  static void drawRegularPolygon(int numberOfEdges);
   static void handleDraw();
   static void handleFill();
   static void resetValue();

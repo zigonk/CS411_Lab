@@ -9,6 +9,7 @@ Point::Point(int x, int y)
 ostream & operator << (ostream &out, const Point& p)
 {
   out << p.x  << " " << p.y;
+  return out;
 }
 
 istream & operator >> (istream &in, Point& p)

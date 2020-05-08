@@ -20,6 +20,8 @@ using namespace std::chrono;
 const int sym_x[4] = {-1,  1, -1, 1};
 const int sym_y[4] = { 1, -1, -1, 1};
 
+#define PI 3.14159265
+
 enum Method {
   DDA,
   BRESENHAM,
@@ -124,6 +126,12 @@ private:
 public:
   Hyperbola() = default;
   Hyperbola(Point center, int major, int minor);
+};
+
+class RegularPolygon
+{
+public:
+  static void drawOnly(Point center, int radius, int numberOfEdges);
 };
 
 #endif

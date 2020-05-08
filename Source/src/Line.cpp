@@ -95,7 +95,7 @@ void Line::DrawByDefault(Point start, Point end)
     glVertex2d(start.x, start.y);
     glVertex2d(end.x, end.y);
   glEnd();
-  glutSwapBuffers();
+  glFlush();
   int X = min(start.x, end.x);
   int Y = min(start.y, end.y);
   int width = abs(end.x - start.x) + 1;
@@ -122,5 +122,5 @@ void Line::DrawOnly(Point start, Point end)
   glVertex2d(start.x, start.y);
   glVertex2d(end.x, end.y);
   glEnd();
-  glutSwapBuffers();
+  glFlush();
 }

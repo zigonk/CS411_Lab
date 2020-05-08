@@ -19,7 +19,6 @@ int L1_distance(Geometry &g1, Geometry &g2)
   {
     Point p1 = g1.PointSet[i];
     Point p2 = g2.PointSet[i];
-    // cout << p1 << " " << p2 << endl;
     res += abs(p1.x - p2.x) + abs(p1.y - p2.y);
   }
   return res;
@@ -33,7 +32,6 @@ int L2_distance(Geometry &g1, Geometry &g2)
   {
     Point p1 = g1.PointSet[i];
     Point p2 = g2.PointSet[i];
-    // cout << p1 << " " << p2 << endl;
     res += pow((p1.x - p2.x), 2) + pow(abs(p1.y - p2.y), 2);
   }
   return sqrt(res);
@@ -51,5 +49,5 @@ void Geometry::DrawByPointSet()
     glVertex2i(PointSet[i].x, PointSet[i].y);
   }
   glEnd();
-  glutSwapBuffers();
+  glFlush();
 }
