@@ -13,11 +13,11 @@ enum Shape
   REGULAR_HEXAGON,
   REGULAR_PENTAGON,
 };
-
 enum Action
 {
   DRAW,
   FILL,
+  TRANSFROM,
   NONE
 };
 

@@ -13,6 +13,7 @@
 #include <config.h>
 #include <thread>
 #include <queue>
+#include "utils.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -50,7 +51,7 @@ class Point
 {
 private:
 public:
-  int x, y;
+  double x, y;
   Point() = default;
   Point(int x, int y);
   friend ostream & operator << (ostream &out, const Point& p);
@@ -132,6 +133,21 @@ class RegularPolygon
 {
 public:
   static void drawOnly(Point center, int radius, int numberOfEdges);
+};
+
+class PolygonInfo
+{
+private:
+  vector<Point> vertices;
+  double area = 0;
+  void calcArea();
+  Point moveCenterTo(double x, double y);
+public:
+  void AddVertex(Point vertex);
+  bool IsInside(Point point);
+  void Transform(int key, bool isSpecial);
+  void Draw();
+  friend void mulAffineMatrix(PolygonInfo &pInfo, const double mat[3][3]);
 };
 
 #endif

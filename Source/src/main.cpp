@@ -12,6 +12,8 @@ void renderObjects(void)
     glFlush();
     firstRender = false;
   }
+  if (MenuManager::getAction() == TRANSFROM)
+    DrawManager::redraw();
   DrawManager::execute();
 }
 
@@ -36,6 +38,8 @@ int main(int argc, char** argv)
   init();
   glutDisplayFunc(renderObjects);
   glutMouseFunc(DrawManager::handleClick);
+  glutKeyboardFunc(DrawManager::handleKeyboard);
+  glutSpecialFunc(DrawManager::handleSpecialKey);
   glutMainLoop();
   return 0;
 }

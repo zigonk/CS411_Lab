@@ -25,13 +25,13 @@ void MenuManager::handleMainMenu(int action)
 void MenuManager::createMenu()
 {
   int drawMenu = glutCreateMenu(MenuManager::handleDrawMenu);
-  glutAddMenuEntry("Circle", CIRCLE);
-  glutAddMenuEntry("Ellipse", ELLIPSE);
-  glutAddMenuEntry("Rectangle", RECTANGLE);
+  // glutAddMenuEntry("Circle", CIRCLE);
+  // glutAddMenuEntry("Ellipse", ELLIPSE);
+  // glutAddMenuEntry("Rectangle", RECTANGLE);
   glutAddMenuEntry("Polygon", POLYGON);
-  glutAddMenuEntry("Right Triangle", RIGHT_TRIANGLE);
-  glutAddMenuEntry("Regular Hexagon", REGULAR_HEXAGON);
-  glutAddMenuEntry("Regular Pentagon", REGULAR_PENTAGON);
+  // glutAddMenuEntry("Right Triangle", RIGHT_TRIANGLE);
+  // glutAddMenuEntry("Regular Hexagon", REGULAR_HEXAGON);
+  // glutAddMenuEntry("Regular Pentagon", REGULAR_PENTAGON);
   int colorMenu = glutCreateMenu(MenuManager::handleColorMenu);
   glutAddMenuEntry("Red", RED);
   glutAddMenuEntry("Green", GREEN);
@@ -39,6 +39,7 @@ void MenuManager::createMenu()
   int mainMenu = glutCreateMenu(MenuManager::handleMainMenu);
   glutAddSubMenu("Draw", drawMenu);
   glutAddSubMenu("Choose color", colorMenu);
+  glutAddMenuEntry("Transform", TRANSFROM);
   glutAddMenuEntry("Fill color", FILL);
   glutAttachMenu(GLUT_RIGHT_BUTTON);
 }

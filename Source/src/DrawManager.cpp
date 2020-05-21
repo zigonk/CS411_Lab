@@ -6,7 +6,11 @@ int DrawManager::button = 0;
 int DrawManager::state = GLUT_UP;
 int DrawManager::x = 0;
 int DrawManager::y = 0;
+int DrawManager::key = -1;
+int DrawManager::selectedPolygon = -1;
+bool DrawManager::isSpecial = false;
 bool DrawManager::isClick = false;
+vector<PolygonInfo> DrawManager::PolygonList(0);
 
 void DrawManager::drawCircle()
 {
@@ -100,11 +104,14 @@ void DrawManager::drawPolygon()
       if (start.x == -1)
       {
         start = Point(x, y);
+        PolygonList.push_back(PolygonInfo());
+        PolygonList[PolygonList.size() - 1].AddVertex(start);
         glutDetachMenu(GLUT_RIGHT_BUTTON);
       }
       else
       {
         Point currentPoint = Point(x, y);
+        PolygonList[PolygonList.size() - 1].AddVertex(currentPoint);
         Line::DrawOnly(end, currentPoint);
       }
       end = Point(x, y);
@@ -252,6 +259,18 @@ void DrawManager::handleFill()
   glFlush();
 }
 
+void DrawManager::handleSelectShape()
+{
+  if (button != GLUT_LEFT_BUTTON)
+    return;
+  if (state != GLUT_DOWN)
+    return;
+  selectedPolygon = -1;
+  for (int i = 0; i < PolygonList.size(); ++i)
+    if (PolygonList[i].IsInside(Point(x, y)))
+      selectedPolygon = i;
+}
+
 void DrawManager::handleClick(int btn, int state, int x, int y)
 {
   if (DrawManager::state == state)
@@ -261,6 +280,22 @@ void DrawManager::handleClick(int btn, int state, int x, int y)
   DrawManager::x = x;
   DrawManager::y = Config::WIDTH - y;
   DrawManager::isClick = true;
+  glutPostRedisplay();
+}
+
+void DrawManager::handleKeyboard(unsigned char key, int x, int y)
+{
+  if (MenuManager::getAction() != TRANSFROM) return;
+  DrawManager::key = key;
+  isSpecial = false;
+  glutPostRedisplay();
+}
+
+void DrawManager::handleSpecialKey(int key, int x, int y)
+{
+  if (MenuManager::getAction() != TRANSFROM) return;
+  DrawManager::key = key;
+  isSpecial = true;
   glutPostRedisplay();
 }
 
@@ -284,7 +319,8 @@ void DrawManager::execute()
   case DRAW:
   {
     Color c = MenuManager::getColor();
-    glColor3f(c.r, c.g, c.b);
+    // glColor3f(c.r, c.g, c.b);
+    glColor3f(1.0, 1.0, 1.0);
     handleDraw();
     break;
   }
@@ -295,7 +331,31 @@ void DrawManager::execute()
     handleFill();
     break;
   }
+  case TRANSFROM:
+  {
+    handleSelectShape();
+  }
   default:
     break;
   }
+}
+
+void DrawManager::redraw()
+{
+  if (selectedPolygon != -1)
+    PolygonList[selectedPolygon].Transform(key, isSpecial);
+  glClear(GL_COLOR_BUFFER_BIT);
+  for (int i = 0; i < PolygonList.size(); ++i)
+    if (i != selectedPolygon)
+    {
+      glColor3f(1.0, 1.0, 1.0);
+      PolygonList[i].Draw();
+    }
+    else
+    {
+      glColor3f(1.0, 0, 0);
+      PolygonList[i].Draw();
+    }
+  key = 0;
+  glFlush();
 }
