@@ -1,3 +1,0 @@
-/home/zkn99/Documents/StudyPlace/HomeWork/CS411/CS411_Lab/Source/build/CMakeFiles/rebuild_cache.dir
-/home/zkn99/Documents/StudyPlace/HomeWork/CS411/CS411_Lab/Source/build/CMakeFiles/edit_cache.dir
-/home/zkn99/Documents/StudyPlace/HomeWork/CS411/CS411_Lab/Source/build/CMakeFiles/main.dir
