@@ -1,16 +1,15 @@
-#include <bits/stdc++.h>
-#include <GL/glut.h>
-#include <SOIL/SOIL.h>
+#include "cylinder.h"
+#include "sphere.h"
+#include "cone.h"
+#include "paraboloid.h"
+#include "hyperboloid.h"
+#include "torus.h"
+#include "disk.h"
+#include "cube.h"
 
-using namespace std;
-
-double angleCube = 1.0;
-double anglePyramid = 1.0;
-double refreshMills = 1.0;
-double xrot = 0.0;
-double yrot = 0.0;
-double zrot = 0.0;
 GLuint texture[1];
+float refreshMills = 10;
+float curAngle = 0;
 
 int loadGLTextures() // Load Bitmaps And Convert To Textures
 {
@@ -26,86 +25,18 @@ int loadGLTextures() // Load Bitmaps And Convert To Textures
   glBindTexture(GL_TEXTURE_2D, texture[0]);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-  glEnable(GL_TEXTURE_2D);
   return true;
 }
 
-int drawGLScene(GLvoid) // Here's Where We Do All The Drawing
-{
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear The Screen And The Depth Buffer
-  glLoadIdentity();                                   // Reset The View
-  glTranslatef(0.0f, 0.0f, -5.0f);
-  glRotatef(xrot, 1.0f, 0.0f, 0.0f);
-  glRotatef(yrot, 0.0f, 1.0f, 0.0f);
-  glRotatef(zrot, 0.0f, 0.0f, 1.0f);
-  glBindTexture(GL_TEXTURE_3D, texture[0]); // Map your texture here
-  glBegin(GL_QUADS);
-  // Front Face
-  glTexCoord3f(0.0f, 0.0f, 0.0f);
-  glVertex3f(-1.0f, -1.0f, 1.0f);
-  glTexCoord2f(1.0f, 0.0f);
-  glVertex3f(1.0f, -1.0f, 1.0f);
-  glTexCoord2f(1.0f, 1.0f);
-  glVertex3f(1.0f, 1.0f, 1.0f);
-  glTexCoord2f(0.0f, 1.0f);
-  glVertex3f(-1.0f, 1.0f, 1.0f);
-  // Back Face
-  glTexCoord2f(1.0f, 0.0f);
-  glVertex3f(-1.0f, -1.0f, -1.0f);
-  glTexCoord2f(1.0f, 1.0f);
-  glVertex3f(-1.0f, 1.0f, -1.0f);
-  glTexCoord2f(0.0f, 1.0f);
-  glVertex3f(1.0f, 1.0f, -1.0f);
-  glTexCoord2f(0.0f, 0.0f);
-  glVertex3f(1.0f, -1.0f, -1.0f);
-  // Top Face
-  glTexCoord2f(0.0f, 1.0f);
-  glVertex3f(-1.0f, 1.0f, -1.0f);
-  glTexCoord2f(0.0f, 0.0f);
-  glVertex3f(-1.0f, 1.0f, 1.0f);
-  glTexCoord2f(1.0f, 0.0f);
-  glVertex3f(1.0f, 1.0f, 1.0f);
-  glTexCoord2f(1.0f, 1.0f);
-  glVertex3f(1.0f, 1.0f, -1.0f);
-  // Bottom Face
-  glTexCoord2f(1.0f, 1.0f);
-  glVertex3f(-1.0f, -1.0f, -1.0f);
-  glTexCoord2f(0.0f, 1.0f);
-  glVertex3f(1.0f, -1.0f, -1.0f);
-  glTexCoord2f(0.0f, 0.0f);
-  glVertex3f(1.0f, -1.0f, 1.0f);
-  glTexCoord2f(1.0f, 0.0f);
-  glVertex3f(-1.0f, -1.0f, 1.0f);
-  // Right face
-  glTexCoord2f(1.0f, 0.0f);
-  glVertex3f(1.0f, -1.0f, -1.0f);
-  glTexCoord2f(1.0f, 1.0f);
-  glVertex3f(1.0f, 1.0f, -1.0f);
-  glTexCoord2f(0.0f, 1.0f);
-  glVertex3f(1.0f, 1.0f, 1.0f);
-  glTexCoord2f(0.0f, 0.0f);
-  glVertex3f(1.0f, -1.0f, 1.0f);
-  // Left Face
-  glTexCoord2f(0.0f, 0.0f);
-  glVertex3f(-1.0f, -1.0f, -1.0f);
-  glTexCoord2f(1.0f, 0.0f);
-  glVertex3f(-1.0f, -1.0f, 1.0f);
-  glTexCoord2f(1.0f, 1.0f);
-  glVertex3f(-1.0f, 1.0f, 1.0f);
-  glTexCoord2f(0.0f, 1.0f);
-  glVertex3f(-1.0f, 1.0f, -1.0f);
-  glEnd();
-  xrot += 0.3f;
-  yrot += 0.2f;
-  zrot += 0.4f;
-  return true;
-}
 
 void initGL()
 {
   glClearColor(0.0f, 0.0f, 0.0f, 1.0f);              // Set background color to black and opaque
   glClearDepth(1.0f);                                // Set background depth to farthest
   glEnable(GL_DEPTH_TEST);                           // Enable depth testing for z-culling
+  glFrontFace(GL_CW);
+  glEnable(GL_CULL_FACE);
+  glEnable(GL_TEXTURE_2D);
   glDepthFunc(GL_LEQUAL);                            // Set the type of depth-test
   glShadeModel(GL_SMOOTH);                           // Enable smooth shading
   glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST); // Nice perspective corrections
@@ -113,90 +44,29 @@ void initGL()
 
 void display()
 {
-  // glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
+  curAngle += 1;
+  glColor3f(1.0f, 1.0f, 1.0f);
+  Cube cube = Cube(Point(-60, 15), 15);
+  cube.draw(curAngle);
+  Sphere s = Sphere(Point(-10, 15), 15);
+  s.draw(360, curAngle);
+  Cylinder c = Cylinder(Point(40, 0), 30, 15);
+  c.draw(360, curAngle);
+  Cone cone = Cone(Point(90, 0), 30, 15);
+  cone.draw(360, curAngle);
+  // Row 2
+  Disk d = Disk(Point(-60, -50), 15);
+  d.draw(360, curAngle);
+  Torus t = Torus(Point(-10, -50), 15, 5);
+  t.draw(360, curAngle);
+  Paraboloid p = Paraboloid(Point(40,-50), 20, -10);
+  p.draw(360, curAngle);
+  Hyperboloid h = Hyperboloid(Point(90, -50), 20);
+  h.draw(360, curAngle);
+
+  glutSwapBuffers();
   glMatrixMode(GL_MODELVIEW);                         // To operate on model-view matrix
-  // // Render a color-cube consisting of 6 quads with different colors
-  // glLoadIdentity();                       // Reset the model-view matrix
-  // glTranslatef(1.5f, 0.0f, -7.0f);        // Move right and into the screen
-  // glRotatef(angleCube, 1.0f, 1.0f, 1.0f); // Rotate about (1,1,1)-axis [NEW]
-  // glBegin(GL_QUADS);                      // Begin drawing the color cube with 6 quads
-  // // Top face (y = 1.0f)
-  // // Define vertices in counter-clockwise (CCW) order with normal pointing out
-  // glColor3f(0.0f, 1.0f, 0.0f); // Green
-  // glVertex3f(1.0f, 1.0f, -1.0f);
-  // glVertex3f(-1.0f, 1.0f, -1.0f);
-  // glVertex3f(-1.0f, 1.0f, 1.0f);
-  // glVertex3f(1.0f, 1.0f, 1.0f);
-  // // Bottom face (y = -1.0f)
-  // glColor3f(1.0f, 0.5f, 0.0f); // Orange
-  // glVertex3f(1.0f, -1.0f, 1.0f);
-  // glVertex3f(-1.0f, -1.0f, 1.0f);
-  // glVertex3f(-1.0f, -1.0f, -1.0f);
-  // glVertex3f(1.0f, -1.0f, -1.0f);
-  // // Front face (z = 1.0f)
-  // glColor3f(1.0f, 0.0f, 0.0f); // Red
-  // glVertex3f(1.0f, 1.0f, 1.0f);
-  // glVertex3f(-1.0f, 1.0f, 1.0f);
-  // glVertex3f(-1.0f, -1.0f, 1.0f);
-  // glVertex3f(1.0f, -1.0f, 1.0f);
-  // // Back face (z = -1.0f)
-  // glColor3f(1.0f, 1.0f, 0.0f); // Yellow
-  // glVertex3f(1.0f, -1.0f, -1.0f);
-  // glVertex3f(-1.0f, -1.0f, -1.0f);
-  // glVertex3f(-1.0f, 1.0f, -1.0f);
-  // glVertex3f(1.0f, 1.0f, -1.0f);
-  // // Left face (x = -1.0f)
-  // glColor3f(0.0f, 0.0f, 1.0f); // Blue
-  // glVertex3f(-1.0f, 1.0f, 1.0f);
-  // glVertex3f(-1.0f, 1.0f, -1.0f);
-  // glVertex3f(-1.0f, -1.0f, -1.0f);
-  // glVertex3f(-1.0f, -1.0f, 1.0f);
-  // // Right face (x = 1.0f)
-  // glColor3f(1.0f, 0.0f, 1.0f); // Magenta
-  // glVertex3f(1.0f, 1.0f, -1.0f);
-  // glVertex3f(1.0f, 1.0f, 1.0f);
-  // glVertex3f(1.0f, -1.0f, 1.0f);
-  // glVertex3f(1.0f, -1.0f, -1.0f);
-  // glEnd(); // End of drawing color-cube
-  // // Render a pyramid consists of 4 triangles
-  // glLoadIdentity();                          // Reset the model-view matrix
-  // glTranslatef(-1.5f, 0.0f, -6.0f);          // Move left and into the screen
-  // glRotatef(anglePyramid, 1.0f, 1.0f, 0.0f); // Rotate about the (1,1,0)-axis [NEW]
-  // glBegin(GL_TRIANGLES);                     // Begin drawing the pyramid with 4 triangles
-  // // Front
-  // glColor3f(1.0f, 0.0f, 0.0f); // Red
-  // glVertex3f(0.0f, 1.0f, 0.0f);
-  // glColor3f(0.0f, 1.0f, 0.0f); // Green
-  // glVertex3f(-1.0f, -1.0f, 1.0f);
-  // glColor3f(0.0f, 0.0f, 1.0f); // Blue
-  // glVertex3f(1.0f, -1.0f, 1.0f);
-  // // Right
-  // glColor3f(1.0f, 0.0f, 0.0f); // Red
-  // glVertex3f(0.0f, 1.0f, 0.0f);
-  // glColor3f(0.0f, 0.0f, 1.0f); // Blue
-  // glVertex3f(1.0f, -1.0f, 1.0f);
-  // glColor3f(0.0f, 1.0f, 0.0f); // Green
-  // glVertex3f(1.0f, -1.0f, -1.0f);
-  // // Back
-  // glColor3f(1.0f, 0.0f, 0.0f); // Red
-  // glVertex3f(0.0f, 1.0f, 0.0f);
-  // glColor3f(0.0f, 1.0f, 0.0f); // Green
-  // glVertex3f(1.0f, -1.0f, -1.0f);
-  // glColor3f(0.0f, 0.0f, 1.0f); // Blue
-  // glVertex3f(-1.0f, -1.0f, -1.0f);
-  // // Left
-  // glColor3f(1.0f, 0.0f, 0.0f); // Red
-  // glVertex3f(0.0f, 1.0f, 0.0f);
-  // glColor3f(0.0f, 0.0f, 1.0f); // Blue
-  // glVertex3f(-1.0f, -1.0f, -1.0f);
-  // glColor3f(0.0f, 1.0f, 0.0f); // Green
-  // glVertex3f(-1.0f, -1.0f, 1.0f);
-  // glEnd(); // Done drawing the pyramid
-  drawGLScene();
-  glutSwapBuffers(); // Swap the front and back frame buffers (double buffering)
-  // Update the rotational angle after each refresh [NEW]
-  anglePyramid += 0.2f;
-  angleCube -= 0.15f;
 }
 /* Called back when timer expired [NEW] */
 void timer(int value)
@@ -209,16 +79,21 @@ void timer(int value)
 void reshape(GLsizei width, GLsizei height)
 { // GLsizei for non-negative integer
   // Compute aspect ratio of the new window
+  GLfloat nRange = 100.0f;
   if (height == 0)
     height = 1; // To prevent divide by 0
   GLfloat aspect = (GLfloat)width / (GLfloat)height;
   // Set the viewport to cover the new window
   glViewport(0, 0, width, height);
   // Set the aspect ratio of the clipping volume to match the viewport
+  glLoadIdentity();
   glMatrixMode(GL_PROJECTION); // To operate on the Projection matrix
+  if (width <= height)
+    glOrtho (-nRange, nRange, -nRange * height / width, nRange * height / width, -nRange, nRange);
+  else
+    glOrtho (-nRange * width / height, nRange * width / height, -nRange, nRange, -nRange, nRange);
+  glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();            // Reset
-  // Enable perspective projection with fovy, aspect, zNear and zFar
-  gluPerspective(45.0f, aspect, 0.1f, 100.0f);
 }
 
 /* Main function: GLUT runs as a console application starting at main() */
